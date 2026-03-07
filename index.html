@@ -3,27 +3,58 @@ layout: page
 description: "Welcome to my personal blog."
 ---
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-        <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
+<!-- Research Areas Section -->
+<div style="margin-bottom: 50px;">
+    <h1 style="text-align: center; margin-bottom: 40px;">研究领域</h1>
+    
+    <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center;">
+        <!-- 2D/3D Registration Area -->
+        <div style="flex: 1; min-width: 300px; background: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h2 style="color: #333; margin-top: 0;">2D/3D配准</h2>
+            <p style="color: #666;">医学影像配准技术研究，包括扩散模型在配准中的应用。</p>
+            <a href="{{ '/category-2d3d.html' | prepend: site.baseurl }}" style="display: inline-block; padding: 10px 20px; background: #0085f2; color: white; text-decoration: none; border-radius: 4px;">查看详情 →</a>
         </div>
-    </a>
-    <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
+        
+        <!-- Foundation Model Area -->
+        <div style="flex: 1; min-width: 300px; background: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h2 style="color: #333; margin-top: 0;">从0开始搭建一个Foundation Model</h2>
+            <p style="color: #666;">基础模型的开发、训练和优化相关研究笔记。</p>
+            <a href="{{ '/category-foundation-model.html' | prepend: site.baseurl }}" style="display: inline-block; padding: 10px 20px; background: #0085f2; color: white; text-decoration: none; border-radius: 4px;">查看详情 →</a>
+        </div>
+    </div>
 </div>
-<hr>
-{% endfor %}
+
+<hr style="margin-bottom: 50px;">
+
+<!-- Latest Posts Section -->
+<div>
+    <h2 style="margin-bottom: 30px;">最新文章</h2>
+    
+    {% for post in paginator.posts %}
+    <div class="post-preview">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+            <h2 class="post-title">
+                {{ post.title }}
+                {% if post.category %}
+                <span style="font-size: 0.7em; background: #e9ecef; padding: 4px 12px; border-radius: 4px; margin-left: 10px;">{{ post.category }}</span>
+                {% endif %}
+            </h2>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+                {{ post.subtitle }}
+            </h3>
+            {% endif %}
+            <div class="post-content-preview">
+                {{ post.content | strip_html | truncate:200 }}
+            </div>
+        </a>
+        <p class="post-meta">
+            Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        </p>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
 
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
