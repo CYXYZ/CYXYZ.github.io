@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+            <a class="navbar-brand" href="{{ site.baseurl }}/" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; font-size: 1.3em; letter-spacing: 1px;">🏥</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,7 +19,13 @@
                     <li>
                         <a href="{{ site.baseurl }}/">Home</a>
                     </li>
-                    {% for page in site.pages %}{% if page.title %}
+                    <li>
+                        <a href="{{ '/category-2d3d/' | prepend: site.baseurl }}">2D/3D配准</a>
+                    </li>
+                    <li>
+                        <a href="{{ '/category-foundation-model/' | prepend: site.baseurl }}">Foundation Model</a>
+                    </li>
+                    {% for page in site.pages %}{% if page.title and page.title != '2D/3D医学影像配准' and page.title != '从0开始搭建一个Foundation Model' %}
                     <li>
                         <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                     </li>
@@ -31,6 +37,26 @@
     </div>
     <!-- /.container -->
 </nav>
+
+<style>
+    /* 导航栏水印背景效果 */
+    .navbar-fixed-top::after {
+        content: '医学影像研究';
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        font-size: 120px;
+        font-weight: 900;
+        color: rgba(102, 126, 234, 0.03);
+        z-index: -1;
+        white-space: nowrap;
+        pointer-events: none;
+        width: 200%;
+        text-align: center;
+    }
+</style>
+
 <script>
     // Drop Bootstarp low-performance Navbar
     // Use customize navbar with high-quality material design animation

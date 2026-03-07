@@ -8,10 +8,115 @@
 
     {% include nav.html %}
 
+    <!-- 左侧动态装饰 -->
+    <div class="side-decoration side-left">
+        <div class="floating-element float-1">📊</div>
+        <div class="floating-element float-2">🧬</div>
+        <div class="floating-element float-3">🔍</div>
+        <div class="floating-element float-4">⚗️</div>
+    </div>
+
+    <!-- 右侧动态装饰 -->
+    <div class="side-decoration side-right">
+        <div class="floating-element float-5">💡</div>
+        <div class="floating-element float-6">🎯</div>
+        <div class="floating-element float-7">🚀</div>
+        <div class="floating-element float-8">✨</div>
+    </div>
+
     {{ content }}
 
     {% include footer.html %}
 
+    <style>
+        /* 侧边装饰元素样式 */
+        .side-decoration {
+            position: fixed;
+            top: 0;
+            width: 80px;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .side-decoration.side-left {
+            left: 0;
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.03) 0%, transparent 100%);
+        }
+
+        .side-decoration.side-right {
+            right: 0;
+            background: linear-gradient(-90deg, rgba(245, 87, 108, 0.03) 0%, transparent 100%);
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.6;
+            animation: float-animation 6s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .side-left .floating-element {
+            left: 15px;
+        }
+
+        .side-right .floating-element {
+            right: 15px;
+        }
+
+        /* 不同的浮动动画延迟 */
+        .float-1 { top: 15%; animation-delay: 0s; }
+        .float-2 { top: 30%; animation-delay: 1.5s; }
+        .float-3 { top: 45%; animation-delay: 3s; }
+        .float-4 { top: 60%; animation-delay: 4.5s; }
+        .float-5 { top: 20%; animation-delay: 0.5s; }
+        .float-6 { top: 35%; animation-delay: 2s; }
+        .float-7 { top: 50%; animation-delay: 3.5s; }
+        .float-8 { top: 65%; animation-delay: 5s; }
+
+        @keyframes float-animation {
+            0%, 100% {
+                transform: translateY(0px) rotateZ(0deg);
+                opacity: 0.4;
+            }
+            25% {
+                transform: translateY(-20px) rotateZ(5deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-40px) rotateZ(0deg);
+                opacity: 0.5;
+            }
+            75% {
+                transform: translateY(-20px) rotateZ(-5deg);
+                opacity: 0.7;
+            }
+        }
+
+        /* 响应式隐藏侧边栏 */
+        @media (max-width: 1200px) {
+            .side-decoration {
+                width: 50px;
+            }
+
+            .floating-element {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .side-decoration {
+                display: none;
+            }
+        }
+
+        /* 确保主要内容在装饰元素上方 */
+        .container, .navbar, .post-preview {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 
 <!-- Image to hack wechat -->
 <img src="/img/logo.png" width="0" height="0" />
