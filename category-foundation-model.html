@@ -4,26 +4,180 @@ title: 从0开始搭建一个Foundation Model
 description: "Foundation Model 开发相关研究笔记"
 ---
 
+<style>
+    .research-header {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 60px 30px;
+        border-radius: 12px;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 32px rgba(245, 87, 108, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .research-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="50" font-size="80" opacity="0.1" text-anchor="middle">🤖</text></svg>');
+        background-size: 200px;
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    .research-header h1 {
+        position: relative;
+        z-index: 1;
+        margin: 0 0 15px 0;
+        font-size: 2.5em;
+    }
+    
+    .research-header .header-desc {
+        position: relative;
+        z-index: 1;
+        font-size: 1.1em;
+        opacity: 0.95;
+    }
+    
+    .post-preview {
+        border: 1px solid #ffe0e6;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 25px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        background: white;
+        overflow: hidden;
+    }
+    
+    .post-preview::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: linear-gradient(180deg, #f093fb 0%, #f5576c 100%);
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.3s ease;
+    }
+    
+    .post-preview:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(245, 87, 108, 0.15);
+        border-color: #f5576c;
+    }
+    
+    .post-preview:hover::before {
+        transform: scaleY(1);
+    }
+    
+    .post-preview a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .post-preview .post-title {
+        color: #2c3e50;
+        margin: 0 0 8px 0;
+        font-size: 1.5em;
+        transition: color 0.3s ease;
+    }
+    
+    .post-preview:hover .post-title {
+        color: #f5576c;
+    }
+    
+    .post-subtitle {
+        color: #7f8c8d;
+        margin: 5px 0 15px 0;
+        font-size: 0.95em;
+    }
+    
+    .post-content-preview {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        font-size: 0.95em;
+    }
+    
+    .post-meta {
+        color: #95a5a6;
+        font-size: 0.85em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .tag-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75em;
+        margin-right: 8px;
+        margin-bottom: 8px;
+    }
+    
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: #7f8c8d;
+    }
+</style>
+
+<div class="research-header">
+    <h1>🤖 从0开始搭建一个Foundation Model</h1>
+    <p class="header-desc">深入探讨基础模型的设计理念、训练策略和优化技巧，从零开始构建属于你的AI基石。</p>
+</div>
+
+{% assign matching_posts = "" | split: "" %}
 {% for post in site.posts %}
-    {% if post.category == "Foundation Model" %}
+    {% for tag in post.tags %}
+        {% if tag == "Foundation Model" %}
+            {% assign matching_posts = matching_posts | push: post %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% if matching_posts.size > 0 %}
+    {% for post in matching_posts %}
     <div class="post-preview">
         <a href="{{ post.url | prepend: site.baseurl }}">
-            <h2 class="post-title">
-                {{ post.title }}
-            </h2>
+            <h2 class="post-title">{{ post.title }}</h2>
             {% if post.subtitle %}
-            <h3 class="post-subtitle">
-                {{ post.subtitle }}
-            </h3>
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% endif %}
+            {% if post.tags.size > 0 %}
+            <div style="margin-bottom: 12px;">
+                {% for tag in post.tags %}
+                <span class="tag-badge">{{ tag }}</span>
+                {% endfor %}
+            </div>
             {% endif %}
             <div class="post-content-preview">
                 {{ post.content | strip_html | truncate:200 }}
             </div>
         </a>
         <p class="post-meta">
-            Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+            <span>Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %}</span>
+            <span>{{ post.date | date: "%B %-d, %Y" }}</span>
         </p>
     </div>
-    <hr>
-    {% endif %}
-{% endfor %}
+    {% endfor %}
+{% else %}
+    <div class="empty-state">
+        <p style="font-size: 1.2em; margin: 20px 0;">暂无相关文章</p>
+        <p>敬请期待更多关于Foundation Model的研究内容...</p>
+    </div>
+{% endif %}

@@ -3,56 +3,378 @@ layout: page
 description: "Welcome to my personal blog."
 ---
 
-<!-- Research Areas Section -->
-<div style="margin-bottom: 50px;">
-    <h1 style="text-align: center; margin-bottom: 40px;">研究领域</h1>
+<style>
+    /* 首页背景和整体样式 */
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
     
-    <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center;">
+    .page-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 80px 40px;
+        margin-bottom: 50px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 12px 48px rgba(102, 126, 234, 0.25);
+    }
+    
+    .page-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: move 20s linear infinite;
+        z-index: 0;
+    }
+    
+    @keyframes move {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
+    
+    .page-header h1 {
+        position: relative;
+        z-index: 1;
+        font-size: 3em;
+        margin: 0 0 20px 0;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    
+    .page-header .subtitle {
+        position: relative;
+        z-index: 1;
+        font-size: 1.3em;
+        opacity: 0.95;
+        margin: 0;
+    }
+    
+    .research-areas-title {
+        text-align: center;
+        font-size: 2.2em;
+        color: #2c3e50;
+        margin-bottom: 50px;
+        position: relative;
+        padding-bottom: 20px;
+    }
+    
+    .research-areas-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        border-radius: 2px;
+    }
+    
+    .research-areas {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 60px;
+    }
+    
+    .research-card {
+        flex: 1;
+        min-width: 320px;
+        max-width: 450px;
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        border: 2px solid transparent;
+    }
+    
+    .research-card:nth-child(1) {
+        border-color: #667eea;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, transparent 100%);
+    }
+    
+    .research-card:nth-child(2) {
+        border-color: #f5576c;
+        background: linear-gradient(135deg, rgba(245, 87, 108, 0.05) 0%, transparent 100%);
+    }
+    
+    .research-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s ease;
+    }
+    
+    .research-card:hover::before {
+        left: 100%;
+    }
+    
+    .research-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .research-card .icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+        display: inline-block;
+        animation: bounce 2s infinite;
+    }
+    
+    .research-card:nth-child(2) .icon {
+        animation-delay: 0.3s;
+    }
+    
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    .research-card h2 {
+        color: #2c3e50;
+        margin: 15px 0 10px 0;
+        font-size: 1.6em;
+        font-weight: 600;
+    }
+    
+    .research-card .card-desc {
+        color: #7f8c8d;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 0.95em;
+    }
+    
+    .research-card .btn {
+        display: inline-block;
+        padding: 12px 28px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .research-card:nth-child(1) .btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
+    .research-card:nth-child(2) .btn {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+    }
+    
+    .research-card .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .section-divider {
+        text-align: center;
+        margin: 60px 0;
+        position: relative;
+    }
+    
+    .section-divider::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #667eea, transparent);
+    }
+    
+    .latest-posts-title {
+        text-align: center;
+        font-size: 2.2em;
+        color: #2c3e50;
+        margin-bottom: 40px;
+        position: relative;
+        padding-bottom: 20px;
+    }
+    
+    .latest-posts-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #f5576c 0%, #f093fb 100%);
+        border-radius: 2px;
+    }
+    
+    .post-preview {
+        background: white;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-left: 5px solid #e8eef5;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .post-preview:hover {
+        transform: translateX(8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-left-color: #667eea;
+    }
+    
+    .post-preview a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .post-preview .post-title {
+        color: #2c3e50;
+        margin: 0 0 8px 0;
+        font-size: 1.4em;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+    
+    .post-preview:hover .post-title {
+        color: #667eea;
+    }
+    
+    .post-preview .post-subtitle {
+        color: #95a5a6;
+        font-size: 0.95em;
+        margin: 5px 0 15px 0;
+    }
+    
+    .post-preview .post-content-preview {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    
+    .category-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 5px 14px;
+        border-radius: 20px;
+        font-size: 0.75em;
+        margin-right: 10px;
+        margin-bottom: 12px;
+        font-weight: 600;
+    }
+    
+    .post-meta {
+        color: #95a5a6;
+        font-size: 0.85em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .pager {
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    .pager li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    
+    .pager a {
+        display: inline-block;
+        padding: 12px 25px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+    
+    .pager a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+    }
+</style>
+
+<!-- Page Header -->
+<div class="page-header">
+    <h1>🏥 医学影像研究博客</h1>
+    <p class="subtitle">探索医学影像分析的前沿技术与创新应用</p>
+</div>
+
+<!-- Research Areas Section -->
+<div style="margin-bottom: 60px;">
+    <h2 class="research-areas-title">📚 研究领域</h2>
+    
+    <div class="research-areas">
         <!-- 2D/3D Registration Area -->
-        <div style="flex: 1; min-width: 300px; background: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <h2 style="color: #333; margin-top: 0;">2D/3D配准</h2>
-            <p style="color: #666;">医学影像配准技术研究，包括扩散模型在配准中的应用。</p>
-            <a href="{{ '/category-2d3d.html' | prepend: site.baseurl }}" style="display: inline-block; padding: 10px 20px; background: #0085f2; color: white; text-decoration: none; border-radius: 4px;">查看详情 →</a>
+        <div class="research-card">
+            <div class="icon">🔬</div>
+            <h2>2D/3D医学影像配准</h2>
+            <p class="card-desc">深入研究医学影像配准技术，包括扩散模型在空间对齐中的创新应用与实践。</p>
+            <a href="{{ '/category-2d3d.html' | prepend: site.baseurl }}" class="btn">查看详情 →</a>
         </div>
         
         <!-- Foundation Model Area -->
-        <div style="flex: 1; min-width: 300px; background: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <h2 style="color: #333; margin-top: 0;">从0开始搭建一个Foundation Model</h2>
-            <p style="color: #666;">基础模型的开发、训练和优化相关研究笔记。</p>
-            <a href="{{ '/category-foundation-model.html' | prepend: site.baseurl }}" style="display: inline-block; padding: 10px 20px; background: #0085f2; color: white; text-decoration: none; border-radius: 4px;">查看详情 →</a>
+        <div class="research-card">
+            <div class="icon">🤖</div>
+            <h2>Foundation Model</h2>
+            <p class="card-desc">从零开始搭建基础模型，探讨设计理念、训练策略与优化技巧的完整学习路径。</p>
+            <a href="{{ '/category-foundation-model.html' | prepend: site.baseurl }}" class="btn">查看详情 →</a>
         </div>
     </div>
 </div>
 
-<hr style="margin-bottom: 50px;">
+<!-- Section Divider -->
+<div class="section-divider"></div>
 
 <!-- Latest Posts Section -->
 <div>
-    <h2 style="margin-bottom: 30px;">最新文章</h2>
+    <h2 class="latest-posts-title">✨ 最新文章</h2>
     
     {% for post in paginator.posts %}
     <div class="post-preview">
         <a href="{{ post.url | prepend: site.baseurl }}">
-            <h2 class="post-title">
-                {{ post.title }}
-                {% if post.category %}
-                <span style="font-size: 0.7em; background: #e9ecef; padding: 4px 12px; border-radius: 4px; margin-left: 10px;">{{ post.category }}</span>
-                {% endif %}
-            </h2>
-            {% if post.subtitle %}
-            <h3 class="post-subtitle">
-                {{ post.subtitle }}
-            </h3>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="flex: 1;">
+                    <h2 class="post-title">{{ post.title }}</h2>
+                    {% if post.subtitle %}
+                    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                    {% endif %}
+                </div>
+            </div>
+            {% if post.category %}
+            <span class="category-badge">{{ post.category }}</span>
             {% endif %}
             <div class="post-content-preview">
                 {{ post.content | strip_html | truncate:200 }}
             </div>
         </a>
         <p class="post-meta">
-            Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+            <span>✍️ {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %}</span>
+            <span>📅 {{ post.date | date: "%B %-d, %Y" }}</span>
         </p>
     </div>
-    <hr>
     {% endfor %}
 </div>
 
@@ -61,12 +383,12 @@ description: "Welcome to my personal blog."
 <ul class="pager">
     {% if paginator.previous_page %}
     <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">← 较新的文章</a>
     </li>
     {% endif %}
     {% if paginator.next_page %}
     <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">较旧的文章 →</a>
     </li>
     {% endif %}
 </ul>
