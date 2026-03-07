@@ -314,12 +314,150 @@ description: "Welcome to my personal blog."
         transform: translateY(-3px);
         box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
     }
+
+    /* 翻转卡片容器 */
+    .stat-card-wrapper {
+        perspective: 1000px;
+        height: 140px;
+    }
+
+    .stat-card {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .stat-card-wrapper:hover .stat-card {
+        transform: rotateY(180deg);
+    }
+
+    .stat-card-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        padding: 20px;
+        cursor: pointer;
+    }
+
+    .stat-card-front {
+        background: white;
+        border: 2px solid #e0e0e0;
+    }
+
+    .stat-card-back {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        transform: rotateY(180deg);
+        padding: 15px;
+        font-size: 0.85em;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .stat-card-front.color-1 {
+        border-color: #667eea;
+    }
+
+    .stat-card-front.color-2 {
+        border-color: #f5576c;
+    }
+
+    .stat-card-front.color-3 {
+        border-color: #764ba2;
+    }
+
+    .stat-card-front.color-4 {
+        border-color: #f093fb;
+    }
+
+    .stat-number {
+        font-size: 2.8em;
+        font-weight: 700;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 5px;
+    }
+
+    .stat-label {
+        color: #7f8c8d;
+        font-size: 0.95em;
+        font-weight: 600;
+    }
+
+    .stats-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 25px;
+        margin: 40px auto;
+        max-width: 900px;
+    }
 </style>
 
 <!-- Page Header -->
 <div class="page-header">
     <h1>🏥 医学影像研究博客</h1>
     <p class="subtitle">探索医学影像分析的前沿技术与创新应用</p>
+</div>
+
+<!-- Statistics Section -->
+<div style="margin-bottom: 60px;">
+    <h3 style="text-align: center; color: #2c3e50; font-size: 1.6em; margin-bottom: 15px;">📊 博客概览</h3>
+    <p style="text-align: center; color: #999; font-size: 0.9em; margin-bottom: 30px;">💡 鼠标悬停卡片可翻转查看详情</p>
+    <div class="stats-section">
+        <div class="stat-card-wrapper">
+            <div class="stat-card">
+                <div class="stat-card-face stat-card-front color-1">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">研究笔记</div>
+                </div>
+                <div class="stat-card-face stat-card-back">
+                    深入分析论文与代码实现细节，涵盖医学影像配准与基础模型
+                </div>
+            </div>
+        </div>
+        <div class="stat-card-wrapper">
+            <div class="stat-card">
+                <div class="stat-card-face stat-card-front color-2">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">研究方向</div>
+                </div>
+                <div class="stat-card-face stat-card-back">
+                    2D/3D配准与Foundation Model两大核心研究领域
+                </div>
+            </div>
+        </div>
+        <div class="stat-card-wrapper">
+            <div class="stat-card">
+                <div class="stat-card-face stat-card-front color-3">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">核心标签</div>
+                </div>
+                <div class="stat-card-face stat-card-back">
+                    DiffPose、扩散模型、深度学习、图像配准等关键技术
+                </div>
+            </div>
+        </div>
+        <div class="stat-card-wrapper">
+            <div class="stat-card">
+                <div class="stat-card-face stat-card-front color-4">
+                    <div class="stat-number">2026</div>
+                    <div class="stat-label">活跃年份</div>
+                </div>
+                <div class="stat-card-face stat-card-back">
+                    持续更新与优化，记录最新的医学影像研究进展
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Research Areas Section -->
