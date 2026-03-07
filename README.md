@@ -1,282 +1,264 @@
+# 🏥 医学影像研究博客
 
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
-![](https://raw.githubusercontent.com/qiubaiying/qiubaiying.github.io/master/img/readme-home.png)
+一个专注于医学影像分析的研究博客平台，展示前沿的医学影像处理技术和创新应用。
 
-[![Build Status](https://travis-ci.org/qiubaiying/qiubaiying.github.io.svg?branch=master)](https://travis-ci.org/qiubaiying/qiubaiying.github.io)
-[![codebeat badge](https://codebeat.co/badges/5f031df3-f6c1-4ec0-911a-ff6617ca50b9)](https://codebeat.co/projects/github-com-qiubaiying-qiubaiying-github-io-master)
-[![GitHub issues](https://img.shields.io/github/issues/qiubaiying/qiubaiying.github.io.svg?style=flat)](https://github.com/qiubaiying/qiubaiying.github.io/issues)
-[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/home-assistant/home-assistant-iOS/blob/master/LICENSE)
-[![](https://img.shields.io/github/stars/qiubaiying/qiubaiying.github.io.svg?style=social&label=Star)](https://github.com/qiubaiying/qiubaiying.github.io)
-[![](https://img.shields.io/github/forks/qiubaiying/qiubaiying.github.io.svg?style=social&label=Fork)](https://github.com/qiubaiying/qiubaiying.github.io)
+## 🎯 项目概述
 
+本项目是一个基于 Jekyll 的医学影像研究博客，旨在分享和记录医学影像领域的最新研究进展、技术笔记和实践经验。采用现代化的医学学术风格设计，提供丰富的交互体验。
 
-博客的搭建教程修改自 [Hux](https://github.com/Huxpro/huxpro.github.io) 
- 
-更为详细的教程戳这 [《利用 GitHub Pages 快速搭建个人博客》](http://www.jianshu.com/p/e68fba58f75c) 或 [wiki](https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B)
+### 研究方向
 
->
-### [查看博客戳这里 👆](http://qiubaiying.github.io)
+- **2D/3D 医学影像配准**：探索扩散模型在医学影像空间对齐中的创新应用
+- **Foundation Model**：从零开始构建基础模型，深入研究模型设计、训练策略和优化技巧
 
+## ✨ 主要特性
 
+### 🎨 现代化设计
+- **医学学术风格**：采用专业的紫蓝色和粉红色渐变配色
+- **动态交互界面**：多元素浮动动画效果
+- **响应式设计**：完全适配各种设备尺寸
 
-## 使用
+### 📱 用户体验
+- **模块化内容**：按研究领域分类组织文章
+- **Tag 过滤系统**：根据标签快速查找相关内容
+- **智能导航**：直观的分类导航菜单
+- **流畅动画**：精心设计的过渡效果
 
-* 开始
-	* [环境](#环境)
-	* [开始](#开始)
-	* [撰写博文](#撰写博文)
-* 组件
-	* [侧边栏](#侧边栏)
-	* [迷你关于我](#mini-about-me)
-	* [推荐标签](#featured-tags)
-	* [好友链接](#friends)
-	* [HTML5 演示文档布局](#keynote-layout)
-* 评论与 Google/Baidu Analytics
-	* [评论](#comment)
-	* [网站分析](#analytics) 
-* 高级部分
-	* [自定义](#customization)
-	* [标题底图](#header-image)
-	* [搜索展示标题-头文件](#seo-title)
-
-
-
-### 环境
-
-如果你安装了 [jekyll](http://jekyllcn.com/)，那你只需要在命令行输入`jekyll serve` 或 `jekyll s`就能在本地浏览器中输入`http://127.0.0.1:4000/`预览主题，对主题的修改也能实时展示（需要强刷浏览器）。
-
-
-
-### 开始
-
-你可以通用修改 `_config.yml`文件来轻松的开始搭建自己的博客:
+## 📁 项目结构
 
 ```
-# Site settings
-title: BY Blog                    # 你的博客网站标题
-SEOTitle: 柏荧的博客 | BY Blog		# SEO 标题
-description: "Hey"	   	   # 随便说点，描述一下
-
-# SNS settings      
-github_username: qiubaiying     # 你的github账号
-jianshu_username: e71990ada2fd  # 你的简书ID。
-
-# Build settings
-# paginate: 10              # 一页你准备放几篇文章
+.
+├── _includes/          # HTML 模板组件
+│   ├── head.html       # 页面头部
+│   ├── nav.html        # 导航栏
+│   └── footer.html     # 页脚
+├── _layouts/           # 页面布局
+│   ├── default.html    # 默认布局
+│   ├── page.html       # 页面布局
+│   └── post.html       # 文章布局
+├── _posts/             # 博客文章
+├── category-*.html     # 研究领域分类页面
+├── css/                # 样式文件
+├── js/                 # JavaScript 脚本
+├── img/                # 图片资源
+├── index.html          # 首页
+└── _config.yml         # Jekyll 配置
 ```
 
-Jekyll官方网站还有很多的参数可以调，比如设置文章的链接形式...网址在这里：[Jekyll - Official Site](http://jekyllrb.com/) 中文版的在这里：[Jekyll中文](http://jekyllcn.com/).
+## 🚀 快速开始
 
-### 撰写博文
+### 本地预览
 
-要发表的文章一般以 **Markdown** 的格式放在这里`_posts/`，你只要看看这篇模板里的文章你就立刻明白该如何设置。
+安装 Jekyll 后，在项目目录下运行：
 
-yaml 头文件长这样:
-
+```bash
+jekyll serve
+# 或
+jekyll s
 ```
+
+访问 `http://127.0.0.1:4000/` 即可预览。
+
+### 撰写新文章
+
+在 `_posts` 中创建 Markdown 文件，命名格式：`YYYY-MM-DD-标题.md`
+
+```markdown
 ---
 layout:     post
-title:      定时器 你真的会使用吗？
-subtitle:   iOS定时器详解
-date:       2016-12-13
-author:     BY
-header-img: img/post-bg-ios9-web.jpg
-catalog: 	 true
+title:      文章标题
+subtitle:   文章副标题
+date:       2026-03-07
+author:     作者名
+header-img: img/example.jpg
+catalog:    true
+category:   2D/3D配准
 tags:
-    - iOS
-    - 定时器
+    - 标签1
+    - 标签2
 ---
 
+# 文章内容
+在这里开始写你的文章...
 ```
 
-### 侧边栏
+**关键字段说明：**
+- `layout`: post（文章布局）
+- `title`: 文章标题（必需）
+- `subtitle`: 副标题
+- `date`: 发布日期
+- `author`: 作者名
+- `header-img`: 头部背景图片
+- `catalog`: 是否生成目录
+- `category`: 文章分类（2D/3D配准 或 Foundation Model）
+- `tags`: 文章标签（用于分类过滤）
 
-看右边:
-![](https://raw.githubusercontent.com/qiubaiying/qiubaiying.github.io/master/img/readme-side.png)
+### 添加研究领域
 
-设置是在 `_config.yml`文件里面的`Sidebar settings`那块。
+要添加新的研究领域：
 
-```
-# Sidebar settings
-sidebar: true  #添加侧边栏
-sidebar-about-description: "简单的描述一下你自己"
-sidebar-avatar: /img/avatar-by.jpg     #你的大头贴，请使用绝对地址.注意：名字区分大小写！后缀名也是
-```
+1. 在根目录创建 `category-name.html`
+2. 配置 Front Matter 和 permalink
+3. 添加分类特定的样式和内容
 
-侧边栏是响应式布局的，当屏幕尺寸小于992px的时候，侧边栏就会移动到底部。具体请见bootstrap栅格系统 <http://v3.bootcss.com/css/>
+## 🎯 按标签过滤
 
+访问分类页面时，博客自动检索和显示特定标签的所有文章：
 
-### Mini About Me
+- `/category-2d3d/` - 显示 tag 为 "2D/3D" 的所有文章
+- `/category-foundation-model/` - 显示 tag 为 "Foundation Model" 的所有文章
 
-Mini-About-Me 这个模块将在你的头像下面，展示你所有的社交账号。这个也是响应式布局，当屏幕变小时候，会将其移动到页面底部，只不过会稍微有点小变化，具体请看代码。
+## 🛠️ 技术栈
 
-### Featured Tags
+| 技术 | 说明 |
+|------|------|
+| Jekyll | 静态网站生成器 |
+| Bootstrap | 前端响应式框架 |
+| LESS | CSS 预处理器 |
+| GitHub Pages | 部署平台 |
+| Liquid | 模板引擎 |
 
-看到这个网站 [Medium](http://medium.com) 的推荐标签非常的炫酷，所以我将他加了进来。
-这个模块现在是独立的，可以呈现在所有页面，包括主页和发表的每一篇文章标题的头上。
+## 🔧 配置管理
 
-```
-# Featured Tags
-featured-tags: true  
-featured-condition-size: 1     # A tag will be featured if the size of it is more than this condition value
-```
+### 修改网站基本信息
 
-唯一需要注意的是`featured-condition-size`: 如果一个标签的 SIZE，也就是使用该标签的文章数大于上面设定的条件值，这个标签就会在首页上被推荐。
- 
-内部有一个条件模板 `{% if tag[1].size > {{site.featured-condition-size}} %}` 是用来做筛选过滤的.
+编辑 `_config.yml`：
 
-### Social-media Account
-
-在下面输入的社交账号，没有的添加的不会显示在侧边框中。新加入了[简书](https:/www.jianshu.com)链接, <http://www.jianshu.com/u/e71990ada2fd>
-
-	# SNS settings
-	RSS: false
-	jianshu_username: 	jianshu_id 
-	zhihu_username:     username
-	facebook_username:  username
-	github_username:    username
-	# weibo_username:   username
-	
-	
-
-![](http://ww4.sinaimg.cn/large/006tKfTcgy1fgrgbgf77aj308i02v748.jpg)
-
-### Friends
-
-好友链接部分。这会在全部页面显示。
-
-设置是在 `_config.yml`文件里面的`Friends`那块，自己加吧。
-
-```
-# Friends
-friends: [
-    {
-        title: "BY Blog",
-        href: "https://qiubaiying.github.io/"
-    },
-    {
-        title: "Apple",
-        href: "https://apple.com/"
-    }
-]
+```yaml
+title: CYXYZ's Blog
+SEOTitle: 崔先生的博客 | CYXYZ's Blog
+description: 医学影像研究与笔记
+url: http://cyxyz.github.io
+sidebar-avatar: /img/my.png
+github_username: CYXYZ
+email: mr.cyxyz@qq.com
 ```
 
+### 侧边栏配置
 
-### Keynote Layout
-
-HTML5幻灯片的排版：
-
-![](https://camo.githubusercontent.com/f30347a118171820b46befdf77e7b7c53a5641a9/687474703a2f2f6875616e677875616e2e6d652f696d672f626c6f672d6b65796e6f74652e6a7067)
-
-这部分是用于占用html格式的幻灯片的，一般用到的是 Reveal.js, Impress.js, Slides, Prezi 等等.我认为一个现代化的博客怎么能少了放html幻灯的功能呢~
-
-其主要原理是添加一个 `iframe`，在里面加入外部链接。你可以直接写到头文件里面去，详情请见下面的yaml头文件的写法。
-
+```yaml
+sidebar: true
+sidebar-about-description: "Hello, laborer!"
+sidebar-avatar: /img/my.png
 ```
+
+## 📊 功能组件
+
+### 研究领域卡片
+- 医学学术风格渐变背景
+- 悬停时的上升和阴影效果
+- 直观的分类导航
+
+### 文章列表卡片
+- 左侧动态主题色边框
+- 标签显示
+- 作者和日期信息展示
+
+### 动态侧边栏元素
+- 科研性的浮动图标（📊🧬🔍⚗️💡🎯🚀✨）
+- 持续的动画效果
+- 响应式隐藏
+
+## 📝 当前内容
+
+### 已发布文章
+
+1. **DiffPose 代码笔记** 
+   - 分类：2D/3D 医学影像配准
+   - 标签：DiffPose、2D/3D
+   - 内容：详解论文与代码对应关系
+
+2. **Foundation Model 研究笔记**（模板）
+   - 分类：Foundation Model
+   - 标签：Foundation Model
+   - 用途：作为新写作文章的起点
+
+## 🎨 样式自定义
+
+### 全局样式
+- 主样式文件：`css/hux-blog.css`
+- 最小化样式：`css/hux-blog.min.css`
+- 语法高亮：`css/syntax.css`
+
+### 响应断点
+- 大屏幕（≥1200px）：完整显示侧边栏装饰
+- 中等屏幕（992px-1199px）：缩小侧边栏元素
+- 小屏幕（≤768px）：隐藏侧边栏装饰
+
+## 📚 使用指南
+
+### 本地开发流程
+
+1. **克隆仓库**
+   ```bash
+   git clone <repo-url>
+   cd CYXYZ.github.io
+   ```
+
+2. **安装依赖**
+   ```bash
+   bundle install
+   ```
+
+3. **本地运行**
+   ```bash
+   bundle exec jekyll serve
+   ```
+
+4. **提交更改**
+   ```bash
+   git add .
+   git commit -m "描述你的改动"
+   git push origin master
+   ```
+
+### 发布流程
+
+1. 在 `_posts` 中添加文章
+2. 本地测试确保无误
+3. 提交到 GitHub
+4. GitHub Pages 自动部署
+
+## 🔍 搜索功能
+
+- 通过标签页面 `/tags/` 浏览所有标签
+- 使用分类页面快速查找特定领域文章
+- 导航栏提供快速访问主要分类
+
+## 📦 资源优化
+
+- **最小化图片资源**：仅保留必要的图片文件
+- **渐变背景**：使用 CSS 渐变替代背景图片
+- **CSS3 动画**：支持硬件加速，性能优化
+- **响应式加载**：智能适配不同设备
+
+## 🎓 学习资源
+
+- [Jekyll 官方文档](http://jekyllcn.com/)
+- [GitHub Pages 帮助](https://docs.github.com/cn/pages)
+- [Bootstrap 文档](http://v3.bootcss.com/)
+- [Liquid 模板语言](https://github.com/Shopify/liquid/wiki)
+
+## 📝 许可证
+
+MIT License - 详见 [LICENSE](LICENSE) 文件
+
+## 👨‍💻 作者
+
+**CYXYZ**
+- 邮箱：mr.cyxyz@qq.com
+- GitHub：[@CYXYZ](https://github.com/CYXYZ)
+
+## 🙏 致谢
+
+感谢以下项目和作者：
+- [Hux Blog](https://github.com/Huxpro/huxpro.github.io) - 原始设计灵感
+- [Jekyll](http://jekyllcn.com/) - 静态网站生成器
+- [Bootstrap](http://getbootstrap.com/) - CSS 框架
+
 ---
-layout:     keynote
-iframe:     "http://huangxuan.me/js-module-7day/"
----
-```
 
-iframe在不同的设备中，将会自动的调整大小。保留内边距是为了让手机用户可以向下滑动，以及添加更多的内容。
-
-
-### Comment
-
-博客不仅支持 [Disqus](http://disqus.com) 评论系统,还加入了 [Gitalk](https://gitalk.github.io/) 评论系统，[支持 Markdwon 语法](https://guides.github.com/features/mastering-markdown/)，cool~
-
-#### Disqus
-
-优点：国际比较流行，界面也很大气、简洁，如果有人评论，还能实时通知，直接回复通知的邮件就行了；
-
-缺点：评论必须要去注册一个disqus账号，分享一般只有Facebook和Twitter，另外在墙内加载速度略慢了一点。想要知道长啥样，可以看以前的版本点[这里](http://brucezhaor.github.io/about.html) 最下面就可以看到。
-
-> Node：有很多人反映 Disqus 插件加载不出来，可能墙又架高了，有条件的话翻个墙就好了~
-
-**使用：**
-
-**首先**，你需要去注册一个Disqus帐号。**不要直接使用我的啊！**
-
-**其次**，你只需要在下面的 yaml 头文件中设置一下就可以了。
-
-```
-# 评论系统
-# Disqus（https://disqus.com/）
-disqus_username: qiubaiying
-```
-
-#### Gitalk
-
-优点：界面干净简洁，利用 Github issue API 做的评论插件，使用 Github 帐号进行登录和评论，最喜欢的支持 Markdown 语法，对于程序员来说真是太 cool 了。
-
-缺点：配置比较繁琐，每篇文章的评论都需要初始化。
-
-**使用：**
-
-参考我的这篇文章：[《为博客添加 Gitalk 评论插件》](http://qiubaiying.top/2017/12/19/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/)
-
-
-### Analytics
-
-网站分析，现在支持百度统计和Google Analytics。需要去官方网站注册一下，然后将返回的code贴在下面：
-
-```
-# Baidu Analytics
-ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
-
-# Google Analytics
-ga_track_id: 'UA-49627206-1'            # 你用Google账号去注册一个就会给你一个这样的id
-ga_domain: huangxuan.me			# 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto。
-```
-
-### Customization
-
-如果你喜欢折腾，你可以去自定义这个模板的 Code。
-
-**如果你可以理解 `_include/` 和 `_layouts/`文件夹下的代码（这里是整个界面布局的地方），你就可以使用 Jekyll 使用的模版引擎 [Liquid](https://github.com/Shopify/liquid/wiki)的语法直接修改/添加代码，来进行更有创意的自定义界面啦！**
-
-### Header Image
-
-博客每页的标题底图是可以自己选的，看看几篇示例post你就知道如何设置了。
-  
-标题底图的选取完全是看个人的审美了。每一篇文章可以有不同的底图，你想放什么就放什么，最后宽度要够，大小不要太大，否则加载慢啊。
-
-> 上传的图片最好先压缩，这里推荐 imageOptim 图片压缩软件，让你的博客起飞。
-
-但是需要注意的是本模板的标题是**白色**的，所以背景色要设置为**灰色**或者**黑色**，总之深色系就对了。当然你还可以自定义修改字体颜色，总之，用github pages就是可以完全的个性定制自己的博客。
-
-### SEO Title
-
-我的博客标题是 **“BY Blog”** 但是我想要在搜索的时候显示 **“柏荧的博客 | BY Blog”** ，这个就需要 SEO Title 来定义了。
-
-其实这个 SEO Title 就是定义了<head><title>标题</title></head>这个里面的东西和多说分享的标题，你可以自行修改的。
-
-### 关于收到"Page Build Warning"的 Email
-
-由于jekyll升级到3.0.x,对原来的 pygments 代码高亮不再支持，现只支持一种-rouge，所以你需要在 `_config.yml`文件中修改`highlighter: rouge`.另外还需要在`_config.yml`文件中加上`gems: [jekyll-paginate]`.
-
-同时,你需要更新你的本地 jekyll 环境.
-
-使用`jekyll server`的同学需要这样：
-
-1. `gem update jekyll` # 更新jekyll
-2. `gem update github-pages` #更新依赖的包
-
-使用`bundle exec jekyll server`的同学在更新 jekyll 后，需要输入`bundle update`来更新依赖的包.
-
-> Note：
-> 可以使用 `jekyll -s` 命令在本地实时配置博客，提高效率。详见 [Jekyll.com](http://jekyllcn.com/)
-
-参考文档：[using jekyll with pages](https://help.github.com/articles/using-jekyll-with-pages/) & [Upgrading from 2.x to 3.x](http://jekyllrb.com/docs/upgrading/2-to-3/)
-
-
-## 致谢
-
-1. 这个模板是从这里 [Hux](https://github.com/Huxpro/huxpro.github.io) fork 的, 感谢这个作者。 
-2. 感谢 Jekyll、Github Pages 和 Bootstrap!
-
-## License
-
-遵循 MIT 许可证。有关详细,请参阅 [LICENSE](https://github.com/qiubaiying/qiubaiying.github.io/blob/master/LICENSE)。
+**最后更新**：2026 年 3 月 7 日 | 📮 欢迎反馈和建议！
 
