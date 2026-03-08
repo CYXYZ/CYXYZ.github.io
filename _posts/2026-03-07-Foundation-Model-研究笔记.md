@@ -15,7 +15,7 @@ tags:
 
 ## 论文PDF
 
-<iframe src="{{ site.baseurl }}/pdf/Sun 等 - 2024 - A foundation model for enhancing magnetic resonance images and downstream segmentation, registration.pdf.pdf" width="100%" height="600" frameborder="0"></iframe>
+<iframe src="{{ site.baseurl }}/pdf/Sun 等 - 2024 - A foundation model for enhancing magnetic resonance images and downstream segmentation, registration.pdf" width="100%" height="600" frameborder="0"></iframe>
 
 ## 简介
 
