@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Foundation Model 研究笔记
+title:      BME-X 研究笔记
 subtitle:   
 date:       2026-03-07
 author:     CYXYZ
@@ -11,13 +11,18 @@ tags:
     - Foundation Model
 ---
 
-# Foundation Model 研究笔记
+# A foundation model for enhancing magnetic resonance images and downstream segmentation, registration and diagnostic tasks
+
+## 论文PDF
+
+<iframe src="{{ site.baseurl }}/pdf/Sun 等 - 2024 - A foundation model for enhancing magnetic resonance images and downstream segmentation, registration.pdf.pdf" width="100%" height="600" frameborder="0"></iframe>
 
 ## 简介
 
-在此添加您的研究内容...
+文章报告了一个用于MRI图像的运动校正、分辨率增强、降噪和和谐优化的基础模型。
 
-## 主要内容
+## 研究目标
+
 
 ### 部分 1
 
